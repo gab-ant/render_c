@@ -1,0 +1,8 @@
+/home/gabant/work/programming/projects/render_c/build/CMakeFiles/render_c.dir
+/home/gabant/work/programming/projects/render_c/build/CMakeFiles/edit_cache.dir
+/home/gabant/work/programming/projects/render_c/build/CMakeFiles/rebuild_cache.dir
+/home/gabant/work/programming/projects/render_c/build/vendored/SDL/CMakeFiles/SDL3-shared.dir
+/home/gabant/work/programming/projects/render_c/build/vendored/SDL/CMakeFiles/SDL3_test.dir
+/home/gabant/work/programming/projects/render_c/build/vendored/SDL/CMakeFiles/SDL_uclibc.dir
+/home/gabant/work/programming/projects/render_c/build/vendored/SDL/CMakeFiles/edit_cache.dir
+/home/gabant/work/programming/projects/render_c/build/vendored/SDL/CMakeFiles/rebuild_cache.dir

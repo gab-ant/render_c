@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/render_c.dir/src/main.c.o -o render_c  -Wl,-rpath,/home/gabant/work/programming/projects/render_c/build/vendored/SDL vendored/SDL/libSDL3.so.0.5.0 
