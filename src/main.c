@@ -1,5 +1,5 @@
 #include "SDL3/SDL_init.h"
-#include "SDL3/SDL_pixels.h"
+#include "SDL3/SDL_surface.h"
 #include "SDL3/SDL_video.h"
 #include <stdio.h>
 #include <stdint.h>
@@ -18,32 +18,33 @@ typedef uint64_t u64;
 typedef float f32;
 typedef double f64;
 
-int main() {
-    SDL_Init(SDL_INIT_VIDEO);
 
-    SDL_Window *window;
+
+int main() {
+    if (!SDL_Init(SDL_INIT_VIDEO)) {
+	printf("Error: could not init video");
+	return 1;
+    }
+
+    SDL_Window *window = SDL_CreateWindow("my game", 400, 400, SDL_WINDOW_RESIZABLE);
     bool done = false;
 
-    window = SDL_CreateWindow("My render", 100, 100, SDL_WINDOW_RESIZABLE);  
-    
     if (window == NULL) {
-	SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Could not create window: %s\n", SDL_GetError());
+	printf("Error: could not create window");
 	return 1;
     }
     
-    // Declaring colors (mapping RGB values to a u32)
-    const SDL_PixelFormatDetails* FmtDetails = SDL_GetPixelFormatDetails(SDL_GetWindowSurface(window)->format);
+    SDL_Surface *surface = SDL_GetWindowSurface(window);
 
-    const u32 RedColor = SDL_MapRGB(
-	    FmtDetails,
-	    NULL,
-	    255,
-	    0,
-	    0
-    );
+    u32 red = SDL_MapSurfaceRGB(surface, 255, 0, 0);
     
-    // Make screen red
-    SDL_FillSurfaceRect(SDL_GetWindowSurface(window), NULL, RedColor);
+    // Assume colors layed out as 32-bit values
+    u32 *pixels = (u32 *)surface->pixels;
+
+    for (int i = 0; i < 100; i++) {
+	pixels[20000 + i] = red;
+    }
+
     SDL_UpdateWindowSurface(window);
 
     while (!done) {
